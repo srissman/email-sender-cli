@@ -1,0 +1,27 @@
+{
+  "name": "email-sender",
+  "version": "1.0.0",
+  "description": "Send emails using node-mailer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "setup": "node setup.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SamRissman",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^4.0.1",
+    "nodemailer-smtp-transport": "^2.7.4"
+  },
+  "devDependencies": {
+    "bunyan": "^1.8.10",
+    "colors": "^1.1.2",
+    "dotenv": "^4.0.0",
+    "fs": "0.0.1-security",
+    "mailparser": "^2.0.4",
+    "mailsplit": "^4.0.2",
+    "prompt": "^1.0.0",
+    "smtp-server": "^3.0.1"
+  }
+}

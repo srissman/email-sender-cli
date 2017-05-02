@@ -1,7 +1,4 @@
-# email-sender-cli
-Send emails from the command line using node-mailer
-
-NODE EMAIL SENDER CLI
+NODE EMAIL SENDER
 
 1. Make sure NODE is VERSION 6 otherwise nodemailer will not be able to open a connection to the smtp server.
 
