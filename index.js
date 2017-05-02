@@ -49,10 +49,6 @@ function userInput() {
 
       prompt.get(['recipients'], function (err, result) {
         if (err) { return onErr(err); }
-        console.log('\n ---------------------------------- \n');
-        console.log('   Command-line input received:');
-        console.log('   Send To: '.green + result.recipients.green);
-        console.log('\n ---------------------------------- \n');
 
         if (result.recipients == 'test') {
             sendAddress = process.env.LITMUS_TEST_EMAIL;
@@ -66,6 +62,13 @@ function userInput() {
             console.log("Please enter a valid option".red);
             return false;
         }
+
+        console.log('\n ---------------------------------- \n');
+        console.log('   Command-line input received:');
+        console.log('   Send To: '.green + sendAddress.green);
+        console.log('\n ---------------------------------- \n');
+
+        
 
      	sendEmail(sendAddress);
 
