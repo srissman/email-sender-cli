@@ -1,6 +1,8 @@
 EMAIL_USER= work email
 EMAIL_PASS= 
 
+FROM_ADDRESS = info@vi.com.au
+
 EMAIL_SUBJECT_LINE = Example subject line
 
 EMAIL_FILE_PATH = index.html
