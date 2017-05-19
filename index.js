@@ -6,6 +6,7 @@ const dotenv = require('dotenv/config'),
     nodemailer = require('./node_modules/nodemailer'),
     user = process.env.EMAIL_USER,
     pass = process.env.EMAIL_PASS,
+    fromAddress = process.env.FROM_ADDRESS,
     toAddress = process.env.LITMUS_TEST_EMAIL,
     subjectLine = process.env.EMAIL_SUBJECT_LINE,
     filePath = process.env.EMAIL_FILE_PATH,
@@ -33,7 +34,7 @@ let transporter = nodemailer.createTransport({
     // default message fields
 
     // sender info
-    from: 'sam@vi.com.au',
+    from: fromAddress,
     headers: {
     }
 });
@@ -44,11 +45,15 @@ userInput();
 
 //Ask user for send info
 function userInput() {
-    console.log("Please choose the recipient list --- test (initial Litmus), retest (litmus retest), internal or client".cyan);
+    console.log("Please choose the recipient list --- test (initial Litmus), retest (litmus retest), internal, client or other (to specify a one off send)".cyan);
     prompt.start();
 
       prompt.get(['recipients'], function (err, result) {
         if (err) { return onErr(err); }
+        console.log('\n ---------------------------------- \n');
+        console.log('   Command-line input received:');
+        console.log('   Send To: '.green + result.recipients.green);
+        console.log('\n ---------------------------------- \n');
 
         if (result.recipients == 'test') {
             sendAddress = process.env.LITMUS_TEST_EMAIL;
@@ -58,17 +63,14 @@ function userInput() {
             sendAddress = process.env.INTERNAL_EMAILS;
         } else if (result.recipients == 'client') {
             sendAddress = process.env.CLIENT_EMAILS;
-        } else {
+        } else if (result.recipients == 'other') {
+            newAddress();
+            return false;
+        } 
+        else {
             console.log("Please enter a valid option".red);
             return false;
         }
-
-        console.log('\n ---------------------------------- \n');
-        console.log('   Command-line input received:');
-        console.log('   Send To: '.green + sendAddress.green);
-        console.log('\n ---------------------------------- \n');
-
-        
 
      	sendEmail(sendAddress);
 
@@ -78,6 +80,24 @@ function userInput() {
         console.log(err);
         return 1;
       }
+};
+
+function newAddress() {
+console.log("Please enter a different email address".cyan);
+            prompt.start();
+            prompt.get(['newAddress'], function (err, result) {
+            if (err) { return onErr(err); }
+            console.log('   Send To: '.green + result.newAddress.green);
+            sendAddress = result.newAddress;
+
+            sendEmail(sendAddress);
+
+            });
+
+            function onErr(err) {
+                console.log(err);
+                return 1;
+            }
 };
 
 function sendEmail(Address) {

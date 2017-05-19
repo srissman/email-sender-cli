@@ -4,9 +4,11 @@
   "description": "Send emails using node-mailer",
   "main": "index.js",
   "scripts": {
+    "preinstall" : "source $(brew --prefix nvm)/nvm.sh; nvm use 6",
+    "postinstall": "node setup.js",
     "start": "node index.js",
     "setup": "node setup.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node testSMTP.js"
   },
   "author": "SamRissman",
   "license": "ISC",
@@ -24,7 +26,7 @@
     "prompt": "^1.0.0",
     "smtp-server": "^3.0.1"
   },
-   "repository" :
+  "repository" :
   { "type" : "git",
     "url" : "https://github.com/srissman/email-sender-cli"
   }
