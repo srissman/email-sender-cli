@@ -1,7 +1,7 @@
 EMAIL_USER= work email
 EMAIL_PASS= 
 
-FROM_ADDRESS = info@vi.com.au
+FROM_ADDRESS = VI <info@vi.com.au>
 
 EMAIL_SUBJECT_LINE = Example subject line
 
