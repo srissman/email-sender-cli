@@ -7,11 +7,11 @@
     "postinstall": "node setup.js",
     "start": "node index.js",
     "setup": "node setup.js",
-    "test": "node setup.js test",
-    "retest": "node setup.js retest",
-    "internal": "node setup.js internal",
-    "client": "node setup.js client",
-    "other": "node setup.js other"
+    "test": "node index.js test",
+    "retest": "node index.js retest",
+    "internal": "node index.js internal",
+    "client": "node index.js client",
+    "other": "node index.js other"
   },
   "author": "SamRissman",
   "license": "ISC",
