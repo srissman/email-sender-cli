@@ -41,7 +41,34 @@ let transporter = nodemailer.createTransport({
 
 console.log('SMTP Configured'.green);
 
-userInput();
+
+
+if (process.argv[2]) {
+
+    console.log('\n ---------------------------------- \n');
+    console.log('   Command-line input received:');
+    console.log('   Send To: '.green + process.argv[2]);
+    console.log('\n ---------------------------------- \n');
+    if (process.argv[2] == 'test') {
+        sendAddress = process.env.LITMUS_TEST_EMAIL;
+    } else if (process.argv[2] == 'retest') {
+        sendAddress = process.env.LITMUS_RETEST_EMAIL;
+    } else if (process.argv[2] == 'internal') {
+        sendAddress = process.env.INTERNAL_EMAILS;
+    } else if (process.argv[2] == 'client') {
+        sendAddress = process.env.CLIENT_EMAILS;
+    } else if (process.argv[2] == 'other') {
+        newAddress();
+        return false;
+    } 
+    else {
+        console.log("Please enter a valid option".red);
+        return false;
+    }
+    sendEmail(sendAddress);
+} else {
+    userInput();
+}
 
 //Ask user for send info
 function userInput() {
@@ -81,6 +108,7 @@ function userInput() {
         return 1;
       }
 };
+
 
 function newAddress() {
 console.log("Please enter a different email address".cyan);
