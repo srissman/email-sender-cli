@@ -4,7 +4,6 @@
   "description": "Send emails using node-mailer",
   "main": "index.js",
   "scripts": {
-    "preinstall" : "source $(brew --prefix nvm)/nvm.sh; nvm use 6",
     "postinstall": "node setup.js",
     "start": "node index.js",
     "setup": "node setup.js",
