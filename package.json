@@ -4,17 +4,19 @@
   "description": "Send emails using node-mailer",
   "main": "index.js",
   "scripts": {
-    "preinstall" : "source $(brew --prefix nvm)/nvm.sh; nvm use 6",
+    "preinstall": "source $(brew --prefix nvm)/nvm.sh; nvm use 6",
     "postinstall": "node setup.js",
     "start": "node index.js",
     "setup": "node setup.js",
-    "test": "node testSMTP.js"
+    "test": "node testSMTP.js",
+    "upload" : "node uploadFiles.js"
   },
   "author": "SamRissman",
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^4.0.1",
-    "nodemailer-smtp-transport": "^2.7.4"
+    "nodemailer-smtp-transport": "^2.7.4",
+    "s3-folder-upload": "0.0.14"
   },
   "devDependencies": {
     "bunyan": "^1.8.10",
@@ -26,8 +28,8 @@
     "prompt": "^1.0.0",
     "smtp-server": "^3.0.1"
   },
-  "repository" :
-  { "type" : "git",
-    "url" : "https://github.com/srissman/email-sender-cli"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srissman/email-sender-cli"
   }
 }

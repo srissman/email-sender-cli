@@ -13,3 +13,5 @@ CLIENT_EMAILS= list of client emails from brief
 
 LITMUS_TEST_EMAIL = Litmus test address
 LITMUS_RETEST_EMAIL = Litmus retest address
+
+IMAGES_PATH = build/images
