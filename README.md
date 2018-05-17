@@ -3,14 +3,13 @@ Send emails from the command line using node-mailer
 
 NODE EMAIL SENDER CLI
 
-1. Make sure NODE is VERSION 6 otherwise nodemailer will not be able to open a connection to the smtp server.
+1.	Make sure NODE is VERSION 6 otherwise nodemailer will not be able to open a connection to the smtp server.
 
-2. run npm install
+2.	run npm install
 
-3. postinstall will run npm setup to create a .env copy of the sample-env file which you can edit with your settings.
+3. 	postinstall will run npm setup to create a .env copy of the sample-env file and place a copy of .sample-email-semder-cli-user-config in your home directory.
 
 4. 	Fill in the created .env file with your:
-	- email username and password
 	- email subjectline
 	- path to html file (will need images to have absolute paths)
 	- from address
@@ -19,13 +18,18 @@ NODE EMAIL SENDER CLI
 	- your Litmus test email to send intially
 	- the retest email from Litmus
 
-5. 	npm start
+5. 	Navigate to your home ( ~ ) directory and edit the .email-sender-cli-user-config updating the following:
+	- your email address
+	- your email password
+	- your AWS key & secret (if necessary)
 
-6. 	Enter the list you wish to send to into the command line prompt
+6. 	npm start
+
+7. 	Enter the list you wish to send to into the command line prompt
 	- test = Litmus intial test
 	- retest = Litmus retest
 	- internal list
 	- client list
 	- other to enter a one off email address
 
-7. 	Off goes the email :)
+8. 	Off goes the email :)

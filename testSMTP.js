@@ -1,11 +1,12 @@
 'use strict';
 
 const dotenv = require('dotenv/config'),
+credentials = require('./grabCredentials').parseCFG,
     colors = require('colors'),
     bunyan = require('bunyan'),
     nodemailer = require('./node_modules/nodemailer'),
-    user = process.env.EMAIL_USER,
-    pass = process.env.EMAIL_PASS,
+    user = credentials.EMAIL_USER,
+    pass = credentials.EMAIL_PASS,
     fromAddress = process.env.FROM_ADDRESS,
     toAddress = process.env.LITMUS_TEST_EMAIL,
     subjectLine = process.env.EMAIL_SUBJECT_LINE,
