@@ -11,10 +11,10 @@
     "test": "node testSMTP.js",
     "upload" : "node uploadFiles.js"
   },
-  "author": "SamRissman",
+  "author": "SamRissman, Jheremois",
   "license": "ISC",
   "dependencies": {
-    "nodemailer": "^4.0.1",
+    "nodemailer": "^6.4.14",
     "nodemailer-smtp-transport": "^2.7.4",
     "s3-folder-upload": "0.0.14"
   },

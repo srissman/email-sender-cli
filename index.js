@@ -4,13 +4,8 @@ const dotenv = require('dotenv/config'),
     colors = require('colors'),
     bunyan = require('bunyan'),
     nodemailer = require('./node_modules/nodemailer'),
-    user = process.env.EMAIL_USER,
-    pass = process.env.EMAIL_PASS,
-    fromAddress = process.env.FROM_ADDRESS,
-    toAddress = process.env.LITMUS_TEST_EMAIL,
-    subjectLine = process.env.EMAIL_SUBJECT_LINE,
-    filePath = process.env.EMAIL_FILE_PATH,
     prompt = require('prompt');
+const {user,pass,fromAddress,subjectLine,filePath} = process.env 
 
 var sendAddress = "";
 
